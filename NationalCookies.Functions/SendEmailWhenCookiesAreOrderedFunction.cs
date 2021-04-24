@@ -39,9 +39,9 @@ namespace NationalCookies.Functions
                     "More details <a href='" + websiteUrl + "/Order/Detail?id=" + order.Id + "'> here</a>";
 
                 SendGridMessage message = new SendGridMessage();
-                message.AddTo("naj.sheikh94@gmail.com");
+                message.AddTo("naj.sheikh94@gmail.com"); /* To address - This person receives the email (We must change the website such that on order the user enters his email. For testing I hardcoded this to my email address) */
                 message.AddContent("text/html", content);
-                message.SetFrom(new EmailAddress("naj.sheikh94@gmail.com"));
+                message.SetFrom(new EmailAddress("naj.sheikh94@gmail.com")); /* This email address must be verified in your send grid account as a verified sender. Else the email will not be sent*/
                 message.SetSubject("You ordered cookies!");
 
                 await messageCollector.AddAsync(message);
